@@ -1,0 +1,42 @@
+﻿@model yazilimYapimi.Web.Entity.Para
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Para</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParaMiktar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParaMiktar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParaOnay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParaOnay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ParaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

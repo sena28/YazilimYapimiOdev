@@ -1,0 +1,75 @@
+﻿@using yazilimYapimi.Web.Entity;
+@model IEnumerable<KullaniciUrun>
+@{
+    ViewBag.Title = "profil";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-between">
+        <div class="col-md-7">
+            <h1>ÜRÜNLERİM</h1>
+            <div>
+                @if (Model.Count() != 0)
+                {
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UrunAdi)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UrunMiktar)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UrunFiyat)
+                            </th>
+                            <th style="width: 135px;"></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UrunAdi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UrunMiktar)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UrunFiyat)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Güncelle", "Edit", new { id = item.KullaniciUrunId }, new { @class = "btn btn-primary btn-sm" })
+                                    @Html.ActionLink("Sil", "Delete", new { id = item.KullaniciUrunId }, new { @class = "btn btn-danger btn-sm" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    <hr />
+                    @*<p>
+                        @Html.ActionLink("Yeni Ürün", "Create", null, new { @class = "btn btn-primary" })
+                    </p>*@
+                }
+                else
+                {
+                    <div class="alert alert-warning">ÜRÜN YOK</div>
+                }
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h1>
+                CÜZDANIM
+            </h1>
+            <div class="input-group-append">
+                <span class="input-group-text">TL</span>
+                <span class="input-group-text"> @ViewBag.Money </span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+

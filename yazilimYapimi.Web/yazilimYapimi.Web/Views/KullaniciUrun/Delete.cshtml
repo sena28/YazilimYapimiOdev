@@ -1,0 +1,49 @@
+﻿@model yazilimYapimi.Web.Entity.KullaniciUrun
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container mt-5">
+    <h3>Silmek istediğinizden emin misiniz?</h3>
+    <hr />
+    <div>
+        
+        <dl class="dl-horizontal">
+           
+            <dt>
+                @Html.DisplayNameFor(model => model.UrunId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UrunId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UrunMiktar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UrunMiktar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UrunFiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UrunFiyat)
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-danger" />
+                @Html.ActionLink("Listeye Dön", "Index",null, new { @class = "btn btn-warning" })
+            </div>
+        }
+    </div>
+</div>

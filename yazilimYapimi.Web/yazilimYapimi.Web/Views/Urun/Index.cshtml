@@ -1,0 +1,59 @@
+﻿@model IEnumerable<yazilimYapimi.Web.Entity.Urun>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2>Ürün Onayı</h2>
+    <hr />
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                 @Html.DisplayNameFor(model => model.image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunMiktar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunFiyat)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.KullaniciId)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            <img src="~/Upload/@item.image" width="70" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunMiktar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunFiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullaniciId)
+        </td>
+        <td>
+
+            @Html.ActionLink("Onayla","Confirm", new { id = item.UrunId }, new { @class = "btn btn-success btn-sm" })
+            @Html.ActionLink("Sil", "Delete", new { id = item.UrunId }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>

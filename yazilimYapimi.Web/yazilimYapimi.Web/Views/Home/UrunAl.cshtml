@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "UrunAl";
+}
+
+<form>
+    <div class="form-group">
+        <label for="category">Kategori</label>
+        <select class="form-control" name="category" id="category">
+            <option value="1">Elma</option>
+            <option value="2">Armut</option>
+            <option value="3">Patates</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="inputQuantity">Ürün miktarı</label>
+        <input type="number" min="0" class="form-control" id="inputQuantity">
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Satın Al</button>
+    </div>
+</form>
+

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<yazilimYapimi.Web.Entity.KullaniciUrun>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container mt-5">
+    <h2>Ürünlerim</h2>
+    <hr />
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KullaniciId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunMiktar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunFiyat)
+            </th>
+            <th style="width: 135px;"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KullaniciId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunMiktar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunFiyat)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.KullaniciUrunId },new {@class="btn btn-primary btn-sm" })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.KullaniciUrunId },new {@class="btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <hr />
+    <p>
+        @Html.ActionLink("Yeni Ürün", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    
+</div>

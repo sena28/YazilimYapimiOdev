@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="yazilimYapimiDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullaniciUruns">
+    <Key>
+      <PropertyRef Name="KullaniciUrunId" />
+    </Key>
+    <Property Name="KullaniciUrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="UrunId" Type="Int32" Nullable="false" />
+    <Property Name="UrunMiktar" Type="Int32" Nullable="false" />
+    <Property Name="UrunFiyat" Type="Double" Nullable="false" />
+    <Property Name="Fiyat" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paras">
+    <Key>
+      <PropertyRef Name="ParaId" />
+    </Key>
+    <Property Name="ParaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="ParaMiktar" Type="Double" Nullable="false" />
+    <Property Name="ParaOnay" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uruns">
+    <Key>
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrunAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UrunMiktar" Type="Int32" Nullable="false" />
+    <Property Name="UrunFiyat" Type="Double" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="UrunOnay" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="yazilimYapimiDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="KullaniciUruns" EntityType="Self.KullaniciUruns" />
+    <EntitySet Name="Paras" EntityType="Self.Paras" />
+    <EntitySet Name="Uruns" EntityType="Self.Uruns" />
+  </EntityContainer>
+</Schema>

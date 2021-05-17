@@ -1,0 +1,41 @@
+﻿@model IEnumerable<yazilimYapimi.Web.Entity.Para>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container mt-5">
+    <h2>Para Onayı</h2>
+    <hr/>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KullaniciId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParaMiktar)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KullaniciId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParaMiktar)
+                </td>
+                <td>
+                    @Html.ActionLink("Onayla", "Confirm", new { id = item.ParaId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.ParaId }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p>
+        @Html.ActionLink("Para Ekle", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+</div>

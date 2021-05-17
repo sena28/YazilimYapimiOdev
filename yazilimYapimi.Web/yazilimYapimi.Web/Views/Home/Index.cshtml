@@ -1,0 +1,63 @@
+﻿@using yazilimYapimi.Web.Entity;
+@model IEnumerable<Urun>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container mt-5">
+    <div class="row">
+        @foreach (var Urun in Model)
+        {
+            <div class="col-md-3 product mb-4">
+                <div class="card">
+                    <img class="card-img-top"
+                         src="~/Upload/@Urun.image"
+                         alt="@Urun.UrunAdi" />
+                    <div class="card-body">
+                        <h5 class="card-title">@Urun.UrunAdi</h5>
+                        <p class="card-text">
+                            @Urun.UrunFiyat TL
+                        </p>
+                        @Html.ActionLink("Satın Al", "UrunAlim", new { id = Urun.UrunId }, new { @class = "btn btn-success btn-sm" })
+                        @*<a href="#modalBuy"
+           class="btn btn-success"
+           data-toggle="modal">Satın Al
+        </a>*@
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@*<div id="modalBuy" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <form action="netting/database.php" method="post">
+                <div class="modal-header">
+                    <h3 class="modal-title text-danger">Ürünü Al</h3>
+                    <button type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-hidden="true">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UrunMiktar, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.UrunMiktar, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UrunMiktar, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>*@
